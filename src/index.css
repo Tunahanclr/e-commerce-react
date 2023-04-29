@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;&display=swap');
+
+@layer base{
+    * {
+        @apply font-[Montserrat] 
+      }
+        li{
+            @apply cursor-pointer hover:text-red-500 transition-all
+        }
+        .active{
+            @apply text-red-500
+        }
+        body{
+          @apply bg-white
+        }
+ 
+}
