@@ -16,5 +16,10 @@
         body{
           @apply bg-white
         }
- 
+        .paginate{
+          @apply flex items-center text-base md:text-xl justify-end
+        }
+        .paginate li{
+            @apply w-8 h-8 
+        }
 }
