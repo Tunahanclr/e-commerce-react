@@ -10,9 +10,7 @@
         li{
             @apply cursor-pointer hover:text-red-500 transition-all
         }
-        .active{
-            @apply text-red-500
-        }
+   
         body{
           @apply bg-white
         }

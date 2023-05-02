@@ -15,7 +15,7 @@ export default function ProductDetail() {
   }, [dispatch, id]);
 
   return (
-    <div>
+    <div>   
       {productDetailStatus == "LOADING" ? (
         <Loading />
       ) : (

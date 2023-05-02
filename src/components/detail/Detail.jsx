@@ -1,18 +1,39 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/cartSlice";
 
 export default function Detail({ productDetail }) {
+  const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);
+
   const decrement = () => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
     }
   };
+
   const increment = () => {
     if (quantity < productDetail?.rating?.count) {
       setQuantity(quantity + 1);
     }
   };
-  const addBasket = () => {};
+
+  const addBasket = () => {
+    if (quantity > 0) {
+      dispatch(
+        addToCart({
+          id: productDetail?.id,
+          title: productDetail?.title,
+          image: productDetail?.image,
+          price: productDetail?.price,
+          quantity: quantity,
+        })
+      );
+    } else {
+      alert("Please specify a quantity before adding to cart.");
+    }
+  };
+
   return (
     <div className="max-w-7xl mt-20 mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="lg:grid items-center space-x-16 lg:grid-cols-2 lg:gap-8">
@@ -40,16 +61,17 @@ export default function Detail({ productDetail }) {
             <span onClick={decrement} className="cursor-pointer font-bold">
               -
             </span>
-            <input className="w-14 text-center" type="text" value={quantity} />
+            <span className="w-14 text-center">{quantity}</span>
             <span onClick={increment} className="cursor-pointer font-bold">
               +
             </span>
           </div>
           <button
+            disabled={quantity === 0}
             onClick={addBasket}
             className="mt-6 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
           >
-            Add to cart
+            {quantity === 0 ? "Specify quantity" : "Add to cart"}
           </button>
         </div>
       </div>

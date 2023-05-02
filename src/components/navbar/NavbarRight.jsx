@@ -1,8 +1,17 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import {SlBasket} from "react-icons/sl"
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import {AiOutlineMenu,AiOutlineClose} from "react-icons/ai"
+import { useDispatch, useSelector } from 'react-redux'
+import { getCartTotal } from '../../redux/cartSlice'
 export default function NavbarRight() {
+  const dispatch=useDispatch()
+  const {itemCount}=useSelector(state=>state.carts)
+
+  const navigate=useNavigate()
+    useEffect(()=>{
+        dispatch(getCartTotal())
+    },[dispatch])
     const [nav, setNav] = useState(false);
     const handleNav = () => {
         setNav(!nav);
@@ -11,15 +20,15 @@ export default function NavbarRight() {
   return (
     <>
         <ul className='md:flex hidden items-center  gap-6'>
-        <NavLink to='/'  className='text-xl font-semibold'>
+        <NavLink to='/'  className='text-base text-red-500 font-semibold'>
     Home
-  </NavLink>            <li className='text-xl font-semibold'>PAGES</li>
-            <li className='text-xl font-semibold'>PRODUCTS</li>
-            <li className='text-xl font-semibold'>BLOG</li>
-            <li className='text-xl font-semibold'>CONTACTS</li>
-              <div className='relative'>
+  </NavLink>            <li className='text-lg font-semibold'>PAGES</li>
+            <li className='text-base font-semibold'>PRODUCTS</li>
+            <li className='text-base font-semibold'>BLOG</li>
+            <li className='text-base font-semibold'>CONTACTS</li>
+              <div onClick={()=>navigate('cart')} className='relative'>
               <div className='absolute -top-3 -right-3 flex justify-center items-center font-sans bg-red-500 text-white rounded-full w-5 h-5'>
-                    3
+                    {itemCount}
                 </div>
                 <SlBasket className=' cursor-pointer text-2xl'/>
               </div>
