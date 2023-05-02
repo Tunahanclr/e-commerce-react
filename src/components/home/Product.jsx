@@ -15,7 +15,7 @@ export default function Product({product, handleMouseEnter, handleMouseLeave, ho
       </div>
       {hoveredProductId === product.id && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <button onClick={()=>navigate(`products/${product?.id}`)} className="text-lg bg-blue-500 w-36 rounded h-11 hover:bg-blue-400 font-bold">Ürün İncele</button>
+          <button onClick={()=>navigate(`products/${product?.id}`)} className="text-lg bg-blue-500 w-36 rounded h-11 hover:bg-blue-400 font-bold">Product Review</button>
         </div>
       )}
       <div className="px-4 py-2 flex justify-between mt-4 items-center gap-3">

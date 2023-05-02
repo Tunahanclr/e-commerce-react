@@ -20,14 +20,14 @@ export default function CartComp({ cart }) {
             className="text-red-500 text-xl font-bold cursor-pointer hover:text-gray-400"
             onClick={() => dispatch(removeFromCart(cart?.id))}
           >
-            Ürünü Sil
+              Delete Product
           </div>
         </div>
         <button
           className="bg-red-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-400 hover:text-red-500 transition-all"
           onClick={() => dispatch(clearCart(cart?.id))}
         >
-          Sepeti Temizle
+            Clear Cart
         </button>
       </div>
     </div>
