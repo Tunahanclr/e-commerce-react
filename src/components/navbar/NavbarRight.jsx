@@ -48,9 +48,9 @@ export default function NavbarRight() {
             <li className='text-xl font-semibold'>PRODUCTS</li>
             <li className='text-xl font-semibold'>BLOG</li>
             <li className='text-xl font-semibold'>CONTACTS</li>
-              <div className='relative'>
+              <div  onClick={()=>navigate('cart')} className='relative'>
               <div className='absolute -top-3 -right-3 flex justify-center items-center font-sans bg-red-500 text-black rounded-full w-5 h-5'>
-                    3
+                   {itemCount}
                 </div>
                 <SlBasket className=' cursor-pointer text-2xl'/>
               </div>
