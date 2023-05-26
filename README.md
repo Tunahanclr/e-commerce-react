@@ -1,4 +1,4 @@
-demo:e-commercee-eight.vercel.app
+demo: https://e-commercee-eight.vercel.app
 languages used:React Tailwindcss
 packages:Redux Toolkit,react-paginate,react-slick,react-icons,react-router.
 
